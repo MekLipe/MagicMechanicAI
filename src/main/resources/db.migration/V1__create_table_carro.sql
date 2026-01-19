@@ -1,0 +1,8 @@
+CREATE TABLE Carro (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    Marca VARCHAR(100) NOT NULL,
+    Modelo VARCHAR(100) NOT NULL,
+    Ano INT,
+    Versao VARCHAR(100) NOT NULL,
+    Motorizacao VARCHAR(100) NOT NULL
+);
