@@ -1,14 +1,13 @@
 package dev.java10x.MagicMechanicAI.controller;
-
+import dev.java10x.MagicMechanicAI.dto.PecaDTO;
 import dev.java10x.MagicMechanicAI.model.Carro;
 import dev.java10x.MagicMechanicAI.service.CarroService;
 import dev.java10x.MagicMechanicAI.service.GeminiService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Mono;
 
+@CrossOrigin(origins = "http://localhost:5173")
 @RestController
 public class PecasInteresseController {
     GeminiService gemini_service;
@@ -19,10 +18,10 @@ public class PecasInteresseController {
         this.carro_service = carro_service;
     }
 
-    @GetMapping("/gerar/{id}")
-    public Mono<ResponseEntity<String>> GeneratePeca(@PathVariable Long id) {
+    @PostMapping("/gerar/{id}")
+    public Mono<ResponseEntity<String>> GeneratePeca(@PathVariable Long id, @RequestBody PecaDTO request) {
         Carro carro_encontrado = carro_service.ListarPorID(id);
-        return gemini_service.GeneratePeca(carro_encontrado)
+        return gemini_service.GeneratePeca(carro_encontrado, request.peca())
                 .map(resposta_gemini -> ResponseEntity.ok(resposta_gemini)) //se existir uma peça, será retornado um ok, pois foi achado
                 .defaultIfEmpty(ResponseEntity.noContent().build()); //se não existir uma peça, será retornado que não há conteúdo
     }

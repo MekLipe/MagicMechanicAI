@@ -36,15 +36,16 @@ public class GeminiService {
   }'
   */
 
-    public Mono GeneratePeca(Carro carro){
+    public Mono GeneratePeca(Carro carro, String peca){
         String prompt = String.format(
                 "Atue como um mecânico experiente. Tenho um %s %s %s %s %d. " +
-                    "Quais são as melhores opções de pneu para esse carro? Responda em poucas palavras.",
+                    "Quais são as melhores opções de %s para esse carro? Responda em poucas palavras.",
                 carro.getMarca(),
                 carro.getModelo(),
                 carro.getMotorizacao(),
                 carro.getVersao(),
-                carro.getAno()
+                carro.getAno(),
+                peca
         );
 
         Map<String, Object> request_body = Map.of(
