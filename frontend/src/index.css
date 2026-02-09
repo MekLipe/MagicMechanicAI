@@ -1,0 +1,84 @@
+body {
+  background: #1e1e1e;
+  color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.card {
+  background: #2a2a2a;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+}
+
+h1 {
+  text-align: center;
+}
+
+button {
+  background: #3fb950;
+  color: #fff;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+button:hover {
+  background: #2ea043;
+}
+
+.carro-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+input {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  font-size: 0.9rem;
+}
+
+.ia-box {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.carro-selecionado {
+  font-weight: bold;
+  color: #3fb950;
+}
+
+.resposta-ia {
+  margin-top: 10px;
+  padding: 14px;
+  background: #1f1f1f;
+  border-radius: 8px;
+  line-height: 1.5;
+}
